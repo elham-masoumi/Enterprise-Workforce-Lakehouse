@@ -6,7 +6,7 @@ Enterprise Workforce Lakehouse is a production-style workforce analytics platfor
 
 The project simulates enterprise-scale HR, payroll, and workforce event processing using a layered Lakehouse architecture:
 
-Raw → ODS → Data Warehouse → Gold Layer → Analytics
+**Raw → ODS → Data Warehouse → Gold Layer → Analytics**
 
 The platform focuses on:
 
@@ -17,6 +17,16 @@ The platform focuses on:
 - Workforce analytics
 
 ---
+
+## Business Problem
+
+Organizations often struggle with:
+- Historical workforce tracking
+- Incremental HR data processing
+- Workforce attrition analysis
+- Monitoring large-scale data pipelines
+
+This project simulates an enterprise workforce analytics platform designed to address these challenges using modern data engineering patterns.
 
 # Architecture
 
@@ -38,6 +48,17 @@ The platform focuses on:
 | GitHub | Version Control |
 
 ---
+
+## Key Engineering Concepts
+
+- Incremental ETL processing
+- Watermark-based ingestion
+- Hash-based change detection
+- SCD Type 2 historical tracking
+- Snapshot fact modeling
+- Data quality monitoring
+- Pipeline observability
+- Large-scale synthetic data generation
 
 # Data Architecture
 
@@ -149,7 +170,7 @@ Implemented operational monitoring features:
 
 ## Gold Layer Analytics
 
-![Gold Layer](gold_layer_metrics.JPG)
+![Gold Layer](screenshots/gold_layer_metrics.png)
 
 ---
 
@@ -186,3 +207,4 @@ Enterprise-Workforce-Lakehouse/
 ## Author
 
 Elham Masoumi
+Data Analytics & Data Engineering Portfolio Project
