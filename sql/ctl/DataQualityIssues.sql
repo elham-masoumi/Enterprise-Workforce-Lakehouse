@@ -1,0 +1,11 @@
+CREATE TABLE ctl.DataQualityIssues
+(
+    IssueId BIGINT IDENTITY(1,1) PRIMARY KEY,
+    DatasetName NVARCHAR(100) NOT NULL,
+    RuleName NVARCHAR(200) NOT NULL,
+    Severity NVARCHAR(20) NOT NULL,
+    AffectedRows INT NOT NULL,
+    IssueDetails NVARCHAR(1000) NULL,
+    CheckDateTime DATETIME2 NOT NULL DEFAULT SYSDATETIME()
+);
+GO
