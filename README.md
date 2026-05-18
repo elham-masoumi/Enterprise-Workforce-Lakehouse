@@ -149,7 +149,7 @@ Implemented operational monitoring features:
 
 ## Gold Layer Analytics
 
-![Gold Layer](screenshots/gold_layer_metrics.png)
+![Gold Layer](gold_layer_metrics.JPG)
 
 ---
 
@@ -172,6 +172,8 @@ Enterprise-Workforce-Lakehouse/
 │
 └── README.md
 
+```
+
 ## Future Improvements
 
 - Apache Airflow orchestration
@@ -180,7 +182,6 @@ Enterprise-Workforce-Lakehouse/
 - Spark-based distributed processing
 - CI/CD pipeline integration
 
----
 
 ## Author
 
