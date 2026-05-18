@@ -206,6 +206,4 @@ Enterprise-Workforce-Lakehouse/
 
 ## Author
 
-Elham Masoumi
-
-Data Analytics & Data Engineering Portfolio Project
+Elham Masoumi - Data Analytics & Data Engineering Portfolio Project
