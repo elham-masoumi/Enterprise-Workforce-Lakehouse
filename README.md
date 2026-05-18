@@ -6,9 +6,7 @@ Enterprise Workforce Lakehouse is a production-style workforce analytics platfor
 
 The project simulates enterprise-scale HR, payroll, and workforce event processing using a layered Lakehouse architecture:
 
-```text
 Raw → ODS → Data Warehouse → Gold Layer → Analytics
-```
 
 The platform focuses on:
 
@@ -20,107 +18,159 @@ The platform focuses on:
 
 ---
 
-## Architecture
+# Architecture
 
-```text
-Raw Layer
-    ↓
-ODS Layer
-    ↓
-Data Warehouse (SCD Type 2)
-    ↓
-Gold Analytics Layer
-    ↓
-Power BI / Reporting
-```
+## Architecture Diagram
+
+![Architecture](screenshots/architecture_overview.png)
 
 ---
 
-## Key Features
-
-### Incremental Data Processing
-
-- Watermark-based incremental loading
-- Hash-based change detection
-- Snapshot-based ingestion
-
-### Data Warehouse Modeling
-
-- SCD Type 2 dimensions
-- Snapshot fact tables
-- Historical workforce analytics
-- Point-in-time reporting
-
-### Event-Driven Processing
-
-- HR events pipeline
-- Append-only event architecture
-- Late-arriving event handling
-
-### Gold Analytics Layer
-
-- Business-friendly analytics views
-- KPI-ready datasets
-- Attrition analytics
-- Payroll analytics
-
-### Observability & Data Quality
-
-- Pipeline monitoring
-- Data quality checks
-- FAIL vs WARN logic
-- Operational monitoring views
-
----
-
-## Technologies Used
+# Technology Stack
 
 | Technology | Purpose |
 |---|---|
-| SQL Server | Data Warehouse |
-| T-SQL | ETL & Data Processing |
+| SQL Server | Data Warehouse & ETL |
+| T-SQL | Data Processing |
 | Python | Synthetic Data Generation |
+| Pandas | Data Simulation |
 | Power BI | Analytics & Reporting |
 | GitHub | Version Control |
 
 ---
 
-## Data Volumes
+# Data Architecture
+
+## Raw Layer
+
+Simulated enterprise source systems:
+
+- HR Core Snapshots
+- Payroll Data
+- HR Events
+
+Key Features:
+- Partitioned ingestion
+- Immutable raw storage
+- Large-scale synthetic datasets
+
+---
+
+## ODS Layer
+
+Operational Data Store used for:
+
+- Incremental loading
+- Current-state employee tracking
+- Watermark processing
+- Hash-based change detection
+
+Main Tables:
+- Employee_Current
+- Payroll_Current
+
+---
+
+## Data Warehouse Layer
+
+Enterprise dimensional model with historical tracking.
+
+Key Components:
+- DimEmployee (SCD Type 2)
+- FactEmployeeSnapshot
+
+Implemented Concepts:
+- Slowly Changing Dimensions (Type 2)
+- Snapshot fact tables
+- Historical workforce tracking
+
+---
+
+## Gold Layer
+
+Business-ready analytical views.
+
+Main Views:
+- vw_WorkforceAnalytics
+- vw_DepartmentMetrics
+- vw_AttritionAnalytics
+- vw_PayrollAnalytics
+
+---
+
+# Data Quality & Observability
+
+Implemented operational monitoring features:
+
+- Pipeline execution logging
+- Data quality checks
+- FAIL vs WARN validation logic
+- Monitoring views
+- Watermark tracking
+
+---
+
+# Project Scale
 
 | Dataset | Volume |
 |---|---|
-| HR Core Snapshots | 1M+ rows/day |
+| HR Snapshots | 1M+ rows/day |
 | Snapshot Fact Table | 7M+ rows |
-| Payroll Data | 100K+ rows |
-| HR Events | 50K+ events |
+| Payroll Data | 900K+ rows/month |
+| HR Events | 30K+ events/load |
 
 ---
 
-## Enterprise Concepts Implemented
+# Screenshots
 
-- Incremental ETL Processing
-- Watermark Logic
-- Hash-Based Change Detection
-- Slowly Changing Dimensions (SCD Type 2)
-- Snapshot Fact Tables
-- Event-Driven Pipelines
-- Late Arriving Data Handling
-- Gold Layer Modeling
-- Data Quality Framework
-- Pipeline Observability
+## SCD Type 2 Historical Tracking
+
+![SCD Type 2](screenshots/scd_type2_example.png)
 
 ---
 
-## Repository Structure
+## Pipeline Monitoring
+
+![Pipeline Monitoring](screenshots/pipeline_monitoring.png)
+
+---
+
+## Data Quality Checks
+
+![Data Quality](screenshots/data_quality_checks.png)
+
+---
+
+## Snapshot Fact Volumes
+
+![Fact Snapshot](screenshots/fact_snapshot_counts.png)
+
+---
+
+## Gold Layer Analytics
+
+![Gold Layer](screenshots/gold_layer_metrics.png)
+
+---
+
+# Repository Structure
 
 ```text
-sql/
-python/
-docs/
-screenshots/
-```
-
----
+Enterprise-Workforce-Lakehouse/
+│
+├── sql/
+│   ├── ods/
+│   ├── dw/
+│   ├── gold/
+│   └── ctl/
+│
+├── python/
+│   ├── generators/
+│   └── pipelines/
+│
+├── screenshots/
+│
+└── README.md
 
 ## Future Improvements
 
